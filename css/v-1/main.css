@@ -867,6 +867,20 @@ header .header-text .header-heading {
     color: #ff3366;
     opacity: .6;
 }
+#contact textarea.form-control{
+    height: 48px;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #ff3366;
+    box-shadow: none;
+    padding: 10px 10px;
+    margin-bottom: 60px;
+    font-style: oblique;
+    font-size: 22px;
+    font-weight: 300;
+    color: #ff3366;
+    opacity: .6;
+}
 #contact input.form-control:hover, 
 #contact input.form-control:active, 
 #contact input.form-controll:focus{
