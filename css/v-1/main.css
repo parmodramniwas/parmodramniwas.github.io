@@ -881,6 +881,13 @@ header .header-text .header-heading {
     color: #ff3366;
     opacity: .6;
 }
+#contact textarea.form-control:hover, 
+#contact textarea.form-control:active, 
+#contact textarea.form-controll:focus{
+    background: #fff;
+    color: #ff3366;
+    opacity: 1;
+}
 #contact input.form-control:hover, 
 #contact input.form-control:active, 
 #contact input.form-controll:focus{
