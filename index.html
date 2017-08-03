@@ -449,8 +449,10 @@
                     <h1 class="section-heading">Leave Your E-mail Address</h1>
                 </div>
                 <div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2 text-center">
-                    <form name="newsletter" role="form" action="#" method="post">
-                        <input type="email" class="form-control text-center" id="InputEmail" placeholder="enter email address here" required>
+                   <form method="POST" action="https://formspree.io/iamjagjeetubhi@gmail.com">
+                        <input type="email" class="form-control text-center" id="InputEmail"
+                        name="name" placeholder="Your email"  required>
+                        <textarea name="message" class="form-control text-center" placeholder="Your message" id="InputEmail" cols="30" rows="10" required></textarea>
                         <button type="submit" class="btn btn-xl btn-submit">Send Email</button>
                     </form>
                 </div>
