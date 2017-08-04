@@ -33,12 +33,19 @@
     <![endif]-->
     <!-- Modernizr -->
     <script src="js/modernizr.custom.12691.js"></script>
-
+    <style>
+        #particles-js {
+          position: absolute;
+          width: 100%;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50% 50%;
+        }
+    </style>
 </head>
 
-<body id="page-top" class="index">
-
-    
+<body> 
+<div id="page-top" class="index">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -85,6 +92,8 @@
 
     <!-- Header -->
     <header>
+    <!-- Particles -->
+    <div id="particles-js"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
@@ -596,6 +605,14 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/animated-headline.js"></script>
+    <!-- Particles -->
+    <script src="particles.js"></script>
+    <script>
+        /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+        particlesJS.load('particles-js', 'assets/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+        });
+    </script>
 
 </body>
 
