@@ -3,11 +3,11 @@ jQuery(document).ready(function($){
     var animationDelay = 2500, //Change to controll the delay time
         //type effect
         typeLettersDelay = 150,
-        selectionDuration = 500,
+        selectionDuration = 300,
         typeAnimationDelay = selectionDuration + 800;
-    
+
     initHeadline();
-    
+
 
     function initHeadline() {
         //insert <i> element for each letter of a changing word
@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
         var duration = animationDelay;
         $headlines.each(function(){
             var headline = $(this);
-            
+
             if(headline.hasClass('loading-bar')) {
                 duration = barAnimationDelay;
                 setTimeout(function(){ headline.find('.words-wrapper').addClass('is-loading') }, barWaiting);
@@ -60,16 +60,16 @@ jQuery(document).ready(function($){
 
     function hideWord($word) {
         var nextWord = takeNext($word);
-        
+
         if($word.parents('.header-heading').hasClass('type')) {
             var parentSpan = $word.parent('.words-wrapper');
-            parentSpan.addClass('selected').removeClass('waiting'); 
-            setTimeout(function(){ 
-                parentSpan.removeClass('selected'); 
+            parentSpan.addClass('selected').removeClass('waiting');
+            setTimeout(function(){
+                parentSpan.removeClass('selected');
                 $word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
             }, selectionDuration);
             setTimeout(function(){ showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
-        
+
         } else if($word.parents('.header-heading').hasClass('letters')) {
             var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
             hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
@@ -99,33 +99,33 @@ jQuery(document).ready(function($){
             $word.addClass('is-visible').removeClass('is-hidden');
 
         }  else if($word.parents('.header-heading').hasClass('clip')) {
-            $word.parents('.words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){ 
-                setTimeout(function(){ hideWord($word) }, revealAnimationDelay); 
+            $word.parents('.words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){
+                setTimeout(function(){ hideWord($word) }, revealAnimationDelay);
             });
         }
     }
 
     function hideLetter($letter, $word, $bool, $duration) {
         $letter.removeClass('in').addClass('out');
-        
+
         if(!$letter.is(':last-child')) {
-            setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);  
-        } else if($bool) { 
+            setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
+        } else if($bool) {
             setTimeout(function(){ hideWord(takeNext($word)) }, animationDelay);
         }
 
         if($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
             var nextWord = takeNext($word);
             switchWord($word, nextWord);
-        } 
+        }
     }
 
     function showLetter($letter, $word, $bool, $duration) {
         $letter.addClass('in').removeClass('out');
-        
-        if(!$letter.is(':last-child')) { 
-            setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration); 
-        } else { 
+
+        if(!$letter.is(':last-child')) {
+            setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration);
+        } else {
             if($word.parents('.header-heading').hasClass('type')) { setTimeout(function(){ $word.parents('.words-wrapper').addClass('waiting'); }, 200);}
             if(!$bool) { setTimeout(function(){ hideWord($word) }, animationDelay) }
         }
