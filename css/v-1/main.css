@@ -407,7 +407,8 @@ header .header-text .header-heading {
   transform: translateY(-50%);
   height: 90%;
   width: 1px;
-  background-color: #ff3366;
+  background-color: #ff3366
+  ;
 }
 .header-heading.type .words-wrapper.waiting::after {
   -webkit-animation: cd-pulse 1s infinite;
